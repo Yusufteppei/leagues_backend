@@ -65,3 +65,27 @@ def get_all_fixtures(request):  #   INDEX RESPONSE BY DATES
             ]
         }
     })
+
+
+def current_competitions(request):
+    competitions = Competition.objects.filter(is_active=True)
+    status = 200
+
+    return JsonResponse({
+        'status': status,
+        'body': {
+            'competitions': [
+                        { 
+                          'name': competition.name,
+                          'start_date': competition.start_date,
+                          'end_date': competition.end_date,
+                          'league': competition.league
+                        }
+                        for competition in competitions
+            ]
+        }
+    })
+
+
+def all_competitions(request):
+    pass

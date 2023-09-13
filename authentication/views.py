@@ -8,13 +8,14 @@ from django.http import JsonResponse
 def register(request):
 
     try:
-        role = request.data['role'] #   ONE ROLE PER USER FOR NOW
+        role_name = request.data['role'] #   ONE ROLE PER USER FOR NOW
         first_name = request.data['first_name']
         last_name = request.data['last_name']
         email = request.data['email']
         phone = request.data['phone']
         username = request.data['username']
 
+        role = Role.objects.get(name=role_name)
 
         u = UserAccount.objects.create(first_name=first_name, last_name=last_name,
                 email=email, phone=phone, username=username)

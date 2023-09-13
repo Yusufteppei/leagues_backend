@@ -15,9 +15,9 @@ class Role(models.Model):
     def __str__(self):
         return self.name
 
-COACH_ROLE = Role.objects.get_or_create(name='Coach')
-MANAGER_ROLE = Role.objects.get_or_create(name='Manager')
-OWNER_ROLE = Role.objects.get_or_create(name='Owner')
+COACH_ROLE = Role.objects.get_or_create(name='Coach')[0]
+MANAGER_ROLE = Role.objects.get_or_create(name='Manager')[0]
+OWNER_ROLE = Role.objects.get_or_create(name='Owner')[0]
 
 class UserAccount(AbstractUser):
     roles = models.ManyToManyField(Role)

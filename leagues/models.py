@@ -22,8 +22,9 @@ class Competition(models.Model):
     def __str__(self):
         return f"{ self.name } - { self.league }" 
 
+    @property
     def is_active(self):
-        pass
+        return True
 
 
 
