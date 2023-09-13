@@ -24,6 +24,7 @@ class UserAccount(AbstractUser):
     email = models.EmailField(max_length=150, unique=True)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
+    phone = models.CharField(max_length=16)
 
     state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True, blank=True)
     

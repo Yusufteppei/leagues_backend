@@ -25,7 +25,8 @@ def register(request):
         status = 200
         message = "Account created successfully"
     
-    except:
+    except Exception as e:
+        raise e
         status = 500
         message = "Account creation failed"
 
