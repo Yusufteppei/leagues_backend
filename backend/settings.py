@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8*s)p$oxzdp*2=$@v008!t874s+bt@2ye*q)ev*n_rknf&t-z&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '127.0.0.1', 'yusufteppei.pythonanywhere.com' ]
+ALLOWED_HOSTS = [ '127.0.0.1', 'yusufteppei.pythonanywhere.com', '192.168.0.181' ]
 
 CORS_ALLOWED_ORIGINS = [ 'http://127.0.0.1:3000', 'https://leagues-xi.vercel.app' ]
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 
+    'rest_framework_simplejwt',
     "corsheaders",
     'rest_framework',
     'teams',
@@ -138,4 +139,10 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'authentication.UserACcount'
+AUTH_USER_MODEL = 'authentication.UserAccount'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}

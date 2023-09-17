@@ -37,3 +37,26 @@ def register(request):
             'message': message
         }
     })
+
+
+@api_view(['GET'])
+def user(request):
+    try:
+        user = request.user
+        body = {
+            'username': user.username,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'email': user.email
+        }
+    except:
+        status = 401
+        body = None
+        message = "Unknown User"
+
+    
+    return JsonResponse({
+        'status': status,
+        'body': body,
+        'message': message
+    })

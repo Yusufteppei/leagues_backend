@@ -26,7 +26,17 @@ class Competition(models.Model):
     def is_active(self):
         return True
 
+    @property
+    def type(self):
+        pass
 
+    @property
+    def registered_team_count(self):
+        pass
+
+    @property
+    def registered_players_count(self):
+        pass
 
 
 class Rules(models.Model):
